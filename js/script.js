@@ -1,20 +1,35 @@
 $(function() {
-	var url = 'http://api.icndb.com/jokes/random';
-	var button = document.getElementById('get-joke');
-	button.addEventListener('click', function(){
-	  getJoke();
-	});
-	var paragraph = document.getElementById('joke');
+	var tweetLink = "https://twitter.com/intent/tweet?text=";
+	var quoteUrl = "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
+	var prefix = "https://cors-anywhere.herokuapp.com/";
 
-	function getJoke() {
-	  var xhr = new XMLHttpRequest();
-	  xhr.open('GET', url);
-	  xhr.addEventListener('load', function(){
-	    var response = JSON.parse(xhr.response);
-	    paragraph.innerHTML = response.value.joke;
-	  });
-	  xhr.send();
+	function getQuote() {
+	    $.getJSON(prefix + quoteUrl, createTweet);
+	    $.ajaxSetup({ cache: false });
 	}
 
-	getJoke();
+	function createTweet(input) {
+	    var data = input[0];
+	    var quoteText = $(data.content).text().trim();
+	    var quoteAuthor = data.title;
+	    var tweetText = "Quote of the day - " + quoteText + " Author: " + quoteAuthor;
+
+	    if (!quoteAuthor.length) {
+	        quoteAuthor = "Unknown author";
+	    }
+
+	    if (tweetText.length > 140) {
+		    getQuote();
+		} else {
+		    var tweet = tweetLink + encodeURIComponent(tweetText);
+		    $('.quote').text(quoteText);
+		    $('.author').text("Author: " + quoteAuthor);
+		    $('.tweet').attr('href', tweet);
+		}
+	}
+
+	// getQuote();
+    $('.trigger').click(function() {
+        getQuote();
+    });
 });

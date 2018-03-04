@@ -4,13 +4,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>title</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-	<button id="get-joke">Random joke</button>
-	<p id="joke"></p>
-
+	<main>
+	    <header>
+	        <h1>Random quote machine</h1>
+	    </header>
+	    <div class="box">
+	        <h2 class="quote"></h2>
+	        <h3 class="author"></h3>
+	    </div>
+	    <div>
+	        <button class="trigger"> Random quote </button>
+	        <a href="#" target="_blank" class="tweet"><i class="fab fa-twitter"></i> Tweet</a>
+	    </div>
+	</main>
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"   integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="   crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/script.js"></script>
