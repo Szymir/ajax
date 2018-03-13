@@ -9,22 +9,24 @@ $(function() {
 	}
 
 	function createTweet(input) {
-	    var data = input[0];
-	    var quoteText = $(data.content).text().trim();
-	    var quoteAuthor = data.title;
-	    var tweetText = "Quote of the day - " + quoteText + " Author: " + quoteAuthor;
+	    if(input.length > 0) {
+		    var data = input[0];
+		    var quoteText = $(data.content).text().trim();
+		    var quoteAuthor = data.title;
+		    var tweetText = "Quote of the day - " + quoteText + " Author: " + quoteAuthor;
 
-	    if (!quoteAuthor.length) {
-	        quoteAuthor = "Unknown author";
-	    }
+		    if (!quoteAuthor.length) {
+		        quoteAuthor = "Unknown author";
+		    }
 
-	    if (tweetText.length > 140) {
-		    getQuote();
-		} else {
-		    var tweet = tweetLink + encodeURIComponent(tweetText);
-		    $('.quote').text(quoteText);
-		    $('.author').text("Author: " + quoteAuthor);
-		    $('.tweet').attr('href', tweet);
+		    if (tweetText.length > 140) {
+			    getQuote();
+			} else {
+			    var tweet = tweetLink + encodeURIComponent(tweetText);
+			    $('.quote').text(quoteText);
+			    $('.author').text("Author: " + quoteAuthor);
+			    $('.tweet').attr('href', tweet);
+			}
 		}
 	}
 
