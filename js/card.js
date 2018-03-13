@@ -1,4 +1,3 @@
-// KLASA KANBAN CARD
 function Card(id, name) {
 	var self = this;
 	
@@ -11,7 +10,7 @@ function Card(id, name) {
 		var cardDeleteBtn = $('<button class="btn-delete">x</button>');
 		var cardDescription = $('<p class="card-description"></p>');
 		
-		cardDeleteBtn.click(function(){
+		cardDeleteBtn.on("click", function(){
 			self.removeCard();
 		});
 		
