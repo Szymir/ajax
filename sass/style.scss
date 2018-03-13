@@ -1,0 +1,29 @@
+$background-color: blue;
+
+body {
+	background-color: $background-color;
+	font-family: 'Lato', sans-serif;
+
+	main {
+		text-align: center;
+		color: white;
+	}
+
+	.trigger{
+		width: 300px;
+		height: 30px;
+		color: white;
+		background-color: $background-color;
+	}
+
+	.tweet{
+		width: 300px;
+		height: 30px;
+		line-height: 30px;
+		display: block;
+		margin: 30px auto;
+		text-decoration: none;
+		color: white;
+		border: 1px solid white;
+	}
+}
